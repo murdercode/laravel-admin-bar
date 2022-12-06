@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Murdercode\LaravelAdminBar\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelAdminBarCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-admin-bar';
 
     public $description = 'My command';
 
