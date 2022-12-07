@@ -2,6 +2,13 @@
 
 // config for Murdercode/LaravelAdminBar
 return [
+    'style' => [
+        'show3labsLogo' => true,
+        'theme' => 'dark', // 'light' or 'dark'
+        'max-width' => '1000px',
+        'position' => 'bottom', // 'top' or 'bottom'
+        'font-size' => '14px',
+    ],
     'config' => [
         'adminUrl' => '/nova',
         'editPost' => [
@@ -22,10 +29,5 @@ return [
             'parameterToReturn' => 'slug', // the value to be returned
             'targetEndpointUrl' => '/posts/{parameter}?nocache',
         ],
-    ],
-    'style' => [
-        'show3labsLogo' => true,
-        'theme' => 'dark', // 'light' or 'dark'
-        'max-width' => '1000px',
     ],
 ];

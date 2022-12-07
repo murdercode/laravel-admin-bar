@@ -22,6 +22,7 @@ class LaravelAdminBarServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasMigration('create_laravel-admin-bar_table')
             ->hasTranslations()
+            ->hasAssets()
             ->hasCommand(LaravelAdminBarCommand::class);
     }
 
