@@ -46,14 +46,14 @@
             margin-left: 1rem;
         }
 
-        .admin-bar > .wrapper > div > a {
+        .admin-bar > .wrapper a {
             opacity: 0.8;
             color: inherit;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .admin-bar > .wrapper > div > a:hover {
+        .admin-bar > .wrapper a:hover {
             text-decoration: underline;
             opacity: 1;
         }
