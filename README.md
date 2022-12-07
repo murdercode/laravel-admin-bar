@@ -42,10 +42,10 @@ php artisan vendor:publish --tag="laravel-admin-bar-views"
 ```
 
 ## Usage
+In any part of your layout you can include the admin bar using the following code:
 
 ```php
-$laravelAdminBar = new Murdercode\LaravelAdminBar();
-echo $laravelAdminBar->echoPhrase('Hello, Murdercode!');
+{{LaravelAdminBar::render()}}
 ```
 
 ## Testing
