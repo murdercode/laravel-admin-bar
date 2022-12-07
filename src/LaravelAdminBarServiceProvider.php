@@ -29,6 +29,4 @@ class LaravelAdminBarServiceProvider extends PackageServiceProvider
     {
         Blade::componentNamespace('Murdercode\LaravelAdminBar\View', 'laravel-admin-bar');
     }
-
-
 }
