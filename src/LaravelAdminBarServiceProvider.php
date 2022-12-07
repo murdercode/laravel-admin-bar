@@ -21,6 +21,7 @@ class LaravelAdminBarServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasMigration('create_laravel-admin-bar_table')
+            ->hasTranslations()
             ->hasCommand(LaravelAdminBarCommand::class);
     }
 
@@ -28,4 +29,6 @@ class LaravelAdminBarServiceProvider extends PackageServiceProvider
     {
         Blade::componentNamespace('Murdercode\LaravelAdminBar\View', 'laravel-admin-bar');
     }
+
+
 }
