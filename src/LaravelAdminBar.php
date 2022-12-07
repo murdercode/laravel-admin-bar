@@ -13,6 +13,7 @@ class LaravelAdminBar
     {
         $postEditLink = self::getPostEditLink();
         $postEmptyCacheLink = self::getPostEmptyCacheLink();
+
         return view('admin-bar::render', compact('postEditLink', 'postEmptyCacheLink'));
     }
 
@@ -63,14 +64,14 @@ class LaravelAdminBar
     }
 
     /**
-     * @param mixed $uri
-     * @param \Illuminate\Routing\Route|null $currentRoute
-     * @param mixed $enabled
-     * @param mixed $model
-     * @param mixed $parameterForSearch
-     * @param mixed $wildcard
-     * @param mixed $parameterToReturn
-     * @param mixed $targetEndpointUrl
+     * @param  mixed  $uri
+     * @param  \Illuminate\Routing\Route|null  $currentRoute
+     * @param  mixed  $enabled
+     * @param  mixed  $model
+     * @param  mixed  $parameterForSearch
+     * @param  mixed  $wildcard
+     * @param  mixed  $parameterToReturn
+     * @param  mixed  $targetEndpointUrl
      * @return array|\Illuminate\Config\Repository|Application|mixed|string|string[]|null
      */
     public static function generateLink(
@@ -93,8 +94,10 @@ class LaravelAdminBar
                     $targetEndpointUrl
                 );
             }
+
             return null;
         }
+
         return null;
     }
 }
