@@ -85,7 +85,7 @@ class LaravelAdminBar
         mixed $parameterToReturn,
         mixed $targetEndpointUrl
     ): mixed {
-        if ($uri && $currentRoute->uri === $uri && $enabled) {
+        if ($uri && $currentRoute && $currentRoute->uri === $uri && $enabled) {
             $post = $model::where($parameterForSearch, $currentRoute->parameters[$wildcard])
                 ->first();
             if ($post) {
