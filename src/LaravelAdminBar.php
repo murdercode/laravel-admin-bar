@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 class LaravelAdminBar
 {
+
     public static function render(): View|Factory|Application
     {
         $postEditLink = self::getPostEditLink();
@@ -17,7 +18,7 @@ class LaravelAdminBar
         return view('admin-bar::render', compact('postEditLink', 'postEmptyCacheLink'));
     }
 
-    private static function getPostEditLink(): ?string
+    public static function getPostEditLink(): ?string
     {
         $uri = config('admin-bar.config.editPost.uri');
         $parameterForSearch = config('admin-bar.config.editPost.parameterForSearch');
@@ -40,7 +41,7 @@ class LaravelAdminBar
         );
     }
 
-    private static function getPostEmptyCacheLink(): ?string
+    public static function getPostEmptyCacheLink(): ?string
     {
         $uri = config('admin-bar.config.emptyCachePost.uri');
         $parameterForSearch = config('admin-bar.config.emptyCachePost.parameterForSearch');
