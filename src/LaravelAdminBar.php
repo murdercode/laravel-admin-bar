@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 class LaravelAdminBar
 {
-
     public static function render(): View|Factory|Application
     {
         $postEditLink = self::getPostEditLink();
