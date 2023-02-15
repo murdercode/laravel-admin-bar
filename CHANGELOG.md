@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-admin-bar` will be documented in this file.
 
+## v0.0.3 - 2023-02-15
+
+Support for Laravel 10 + PHP 8.2
+
 ## v0.0.2 - 2022-12-09
 
 ### What's Changed
