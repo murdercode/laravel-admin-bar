@@ -1,8 +1,8 @@
 # Laravel Admin Bar
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/murdercode/laravel-admin-bar.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-admin-bar)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/murdercode/laravel-admin-bar/run-tests?label=tests)](https://github.com/murdercode/laravel-admin-bar/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/murdercode/laravel-admin-bar/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/murdercode/laravel-admin-bar/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![run-tests](https://github.com/murdercode/laravel-admin-bar/actions/workflows/run-tests.yml/badge.svg)](https://github.com/murdercode/laravel-admin-bar/actions/workflows/run-tests.yml)
+[![Fix PHP code style issues](https://github.com/murdercode/laravel-admin-bar/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/murdercode/laravel-admin-bar/actions/workflows/fix-php-code-style-issues.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/murdercode/laravel-admin-bar.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-admin-bar)
 
 A simple, but powerful, package for include an Admin bar (like Wordpress) in your next fantastic Laravel project.
