@@ -13,7 +13,7 @@ class LaravelAdminBar
     public static function render(): View|Factory|Application
     {
         $postEditLink = self::getPostEditLink();
-//        $postEmptyCacheLink = self::getPostEmptyCacheLink();
+        //        $postEmptyCacheLink = self::getPostEmptyCacheLink();
 
         return view('admin-bar::render', compact('postEditLink'));
     }
@@ -43,8 +43,6 @@ class LaravelAdminBar
         $currentRoute = Route::current();
         $targetEndpointUrl = config('admin-bar.config.emptyCachePost.targetEndpointUrl');
 
-
-
         return self::generateLink(
             $uris,
             $currentRoute,
@@ -58,14 +56,6 @@ class LaravelAdminBar
     }
 
     /**
-     * @param mixed $uris
-     * @param \Illuminate\Routing\Route|null $currentRoute
-     * @param mixed $enabled
-     * @param mixed $model
-     * @param mixed $parameterForSearch
-     * @param mixed $wildcard
-     * @param mixed $parameterToReturn
-     * @param mixed $targetEndpointUrl
      * @return array|Repository|Application|mixed|string|string[]|null
      */
     public static function generateLink(mixed $uris, ?\Illuminate\Routing\Route $currentRoute, mixed $enabled, mixed $model, mixed $parameterForSearch, mixed $wildcard, mixed $parameterToReturn, mixed $targetEndpointUrl): mixed
@@ -76,6 +66,7 @@ class LaravelAdminBar
                 if ($post) {
                     return str_replace('{parameter}', $post->{$parameterToReturn}, $targetEndpointUrl);
                 }
+
                 return null;
             }
         }
