@@ -2,6 +2,7 @@
 
 namespace Murdercode\LaravelAdminBar;
 
+use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -12,14 +13,14 @@ class LaravelAdminBar
     public static function render(): View|Factory|Application
     {
         $postEditLink = self::getPostEditLink();
-        $postEmptyCacheLink = self::getPostEmptyCacheLink();
+//        $postEmptyCacheLink = self::getPostEmptyCacheLink();
 
-        return view('admin-bar::render', compact('postEditLink', 'postEmptyCacheLink'));
+        return view('admin-bar::render', compact('postEditLink'));
     }
 
     public static function getPostEditLink(): ?string
     {
-        $uri = config('admin-bar.config.editPost.uri');
+        $uris = config('admin-bar.config.editPost.uris');
         $parameterForSearch = config('admin-bar.config.editPost.parameterForSearch');
         $model = config('admin-bar.config.editPost.model');
         $wildcard = config('admin-bar.config.editPost.wildcard');
@@ -28,21 +29,12 @@ class LaravelAdminBar
         $currentRoute = Route::current();
         $targetEndpointUrl = config('admin-bar.config.editPost.targetEndpointUrl');
 
-        return self::generateLink(
-            $uri,
-            $currentRoute,
-            $enabled,
-            $model,
-            $parameterForSearch,
-            $wildcard,
-            $parameterToReturn,
-            $targetEndpointUrl
-        );
+        return self::generateLink($uris, $currentRoute, $enabled, $model, $parameterForSearch, $wildcard, $parameterToReturn, $targetEndpointUrl);
     }
 
     public static function getPostEmptyCacheLink(): ?string
     {
-        $uri = config('admin-bar.config.emptyCachePost.uri');
+        $uris = config('admin-bar.config.emptyCachePost.uris');
         $parameterForSearch = config('admin-bar.config.emptyCachePost.parameterForSearch');
         $model = config('admin-bar.config.emptyCachePost.model');
         $wildcard = config('admin-bar.config.emptyCachePost.wildcard');
@@ -51,8 +43,10 @@ class LaravelAdminBar
         $currentRoute = Route::current();
         $targetEndpointUrl = config('admin-bar.config.emptyCachePost.targetEndpointUrl');
 
+
+
         return self::generateLink(
-            $uri,
+            $uris,
             $currentRoute,
             $enabled,
             $model,
@@ -64,38 +58,26 @@ class LaravelAdminBar
     }
 
     /**
-     * @param  mixed  $uri
-     * @param  \Illuminate\Routing\Route|null  $currentRoute
-     * @param  mixed  $enabled
-     * @param  mixed  $model
-     * @param  mixed  $parameterForSearch
-     * @param  mixed  $wildcard
-     * @param  mixed  $parameterToReturn
-     * @param  mixed  $targetEndpointUrl
-     * @return array|\Illuminate\Config\Repository|Application|mixed|string|string[]|null
+     * @param mixed $uris
+     * @param \Illuminate\Routing\Route|null $currentRoute
+     * @param mixed $enabled
+     * @param mixed $model
+     * @param mixed $parameterForSearch
+     * @param mixed $wildcard
+     * @param mixed $parameterToReturn
+     * @param mixed $targetEndpointUrl
+     * @return array|Repository|Application|mixed|string|string[]|null
      */
-    public static function generateLink(
-        mixed $uri,
-        ?\Illuminate\Routing\Route $currentRoute,
-        mixed $enabled,
-        mixed $model,
-        mixed $parameterForSearch,
-        mixed $wildcard,
-        mixed $parameterToReturn,
-        mixed $targetEndpointUrl
-    ): mixed {
-        if ($uri && $currentRoute && $currentRoute->uri === $uri && $enabled) {
-            $post = $model::where($parameterForSearch, $currentRoute->parameters[$wildcard])
-                ->first();
-            if ($post) {
-                return str_replace(
-                    '{parameter}',
-                    $post->{$parameterToReturn},
-                    $targetEndpointUrl
-                );
+    public static function generateLink(mixed $uris, ?\Illuminate\Routing\Route $currentRoute, mixed $enabled, mixed $model, mixed $parameterForSearch, mixed $wildcard, mixed $parameterToReturn, mixed $targetEndpointUrl): mixed
+    {
+        foreach ($uris as $uri) {
+            if ($uri && $currentRoute->uri == $uri) {
+                $post = $model::where($parameterForSearch, $currentRoute->parameters[$wildcard])->first();
+                if ($post) {
+                    return str_replace('{parameter}', $post->{$parameterToReturn}, $targetEndpointUrl);
+                }
+                return null;
             }
-
-            return null;
         }
 
         return null;
