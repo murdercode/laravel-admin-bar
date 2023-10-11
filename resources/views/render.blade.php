@@ -1,21 +1,20 @@
 @auth
-
-	<style>
+    <style>
         .admin-bar {
-			@if(config('admin-bar.style.theme') == 'light')
-             background-color: #f8f9fa;
+            @if(config('admin-bar.style.theme') == 'light')
+  background-color: #f8f9fa;
             color: #323f52;
-			@else
-             background-color: #343a40;
+            @else
+  background-color: #000;
             color: #f8f9fa;
-			@endif
+            @endif
 
-			@if(config('admin-bar.style.position') == 'top')
-			      top: 0;
-			@else
-			   bottom: 0;
-			@endif
-			 position: fixed;
+            @if(config('admin-bar.style.position') == 'top')
+  top: 0;
+            @else
+  bottom: 0;
+            @endif
+  position: fixed;
 
             left: 0;
             z-index: 999999;
@@ -59,13 +58,14 @@
         }
 
         .admin-bar ul {
-	        margin:0;
-	        list-style: none;
+            margin: 0;
+            list-style: none;
         }
+
         .admin-bar ul li {
-	        display: inline-block;
-	        margin-left: 1rem;
-		}
+            display: inline-block;
+            margin-left: 1rem;
+        }
 
         .sr-only {
             position: absolute;
@@ -80,112 +80,116 @@
         }
 
         .hamburger, .close-button {
-	        display:none;
+            display: none;
         }
 
 
         /* Smartphone */
         @media (max-width: 768px) {
-	        .hamburger, .close-button {
-		        display: inline-block;
-	        }
-	        .admin-bar ul {
-		        margin:0 !important;
-		        padding:0 !important;
-	        }
+            .hamburger, .close-button {
+                display: inline-block;
+            }
+
+            .admin-bar ul {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
             .admin-bar ul li {
-	            display: block;
-	            margin-left: 0;
-	            text-align: center;
-	            font-size:18px;
-	            padding-top: 1rem;
+                display: block;
+                margin-left: 0;
+                text-align: center;
+                font-size: 18px;
+                padding-top: 1rem;
                 padding-bottom: 1rem;
             }
+
             .admin-bar ul > * + * {
                 border-top-width: 1px;
                 border-bottom-width: 0px;
-	            border-color: #4d4d4d;
+                border-color: #4d4d4d;
             }
+
             .navbar {
                 display: none;
             }
+
             .navbar:target {
                 display: block;
-	            position: fixed;
-	            top: 0;
-	            right: 0;
-	            background: #343a40;
-	            width:100%;
-	            height:100%;
-	            z-index: 99999;
-	            padding:1rem;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #343a40;
+                width: 100%;
+                height: 100%;
+                z-index: 99999;
+                padding: 1rem;
             }
 
 
         }
 
-	</style>
+    </style>
 
-	<div class="admin-bar">
-		<div class="wrapper">
-			<div class="left">
+    <div class="admin-bar">
+        <div class="wrapper">
+            <div class="left">
 
-				@if(config('admin-bar.style.show3labsLogo'))
-					<x-admin-bar::icons.3labs-logo/>
-				@endif
+                @if(config('admin-bar.style.show3labsLogo'))
+                    <x-admin-bar::icons.3labs-logo/>
+                @endif
 
-				{{__('Welcome back')}},
-				<strong>
-					{{auth()->user()->name}}
-				</strong>
-			</div>
+                {{--                {{__('Welcome back')}},--}}
+                {{--                <strong>--}}
+                {{--                    {{auth()->user()->name}}--}}
+                {{--                </strong>--}}
+            </div>
 
-			<div class="right">
+            <div class="right">
 
-				<a class="hamburger" href="#navbar">
-					<span class="sr-only">Open main menu</span>
-					<x-admin-bar::icons.hamburger/>
-				</a>
+                <a class="hamburger" href="#navbar">
+                    <span class="sr-only">Open main menu</span>
+                    <x-admin-bar::icons.hamburger/>
+                </a>
 
-				<nav class="navbar" id="navbar" aria-label="Main menu">
+                <nav class="navbar" id="navbar" aria-label="Main menu">
 
-					<a href="#" class="close-button">
-						<span class="sr-only">Close main menu</span>
-						<x-admin-bar::icons.close />
-					</a>
+                    <a href="#" class="close-button">
+                        <span class="sr-only">Close main menu</span>
+                        <x-admin-bar::icons.close/>
+                    </a>
 
-					<ul>
+                    <ul>
 
-					@if(isset($postEmptyCacheLink))
-						<li>
-						<a href="{{$postEmptyCacheLink}}">
-							<x-admin-bar::icons.trash/>
-							{{__('Clear Cache')}}
-						</a>
-						</li>
-					@endif
+                        @if(isset($postEmptyCacheLink))
+                            <li>
+                                <a href="{{$postEmptyCacheLink}}">
+                                    <x-admin-bar::icons.trash/>
+                                    {{__('Clear Cache')}}
+                                </a>
+                            </li>
+                        @endif
 
-					@if(isset($postEditLink))
-<li>
-						<a href="{{$postEditLink}}">
-							<x-admin-bar::icons.edit/>
-							{{__('Edit Post')}}
-						</a>
-						</li>
-					@endif
+                        @if(isset($postEditLink))
+                            <li>
+                                <a href="{{$postEditLink}}" target="_blank">
+                                    <x-admin-bar::icons.edit/>
+                                    {{__('Edit Post')}}
+                                </a>
+                            </li>
+                        @endif
 
-							<li>
-					<a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
-						{{__('Control Panel')}}
-					</a>
-							</li>
+                        <li>
+                            <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
+                                {{__('Control Panel')}}
+                            </a>
+                        </li>
 
-					</ul>
+                    </ul>
 
-				</nav>
+                </nav>
 
-			</div>
-		</div>
-	</div>
-
+            </div>
+        </div>
+    </div>
 @endauth
