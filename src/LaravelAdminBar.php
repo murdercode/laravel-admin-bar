@@ -13,6 +13,7 @@ class LaravelAdminBar
     public static function render(): View|Factory|Application
     {
         $postEditLink = self::getPostEditLink();
+
         //        $postEmptyCacheLink = self::getPostEmptyCacheLink();
         return view('admin-bar::render', compact('postEditLink'));
     }
@@ -30,28 +31,28 @@ class LaravelAdminBar
         return self::generateLink($uris, $enabled, $model, $parameterForSearch, $wildcard, $parameterToReturn, $targetEndpointUrl);
     }
 
-//    public static function getPostEmptyCacheLink(): ?string
-//    {
-//        $uris = config('admin-bar.config.emptyCachePost.uris');
-//        $parameterForSearch = config('admin-bar.config.emptyCachePost.parameterForSearch');
-//        $model = config('admin-bar.config.emptyCachePost.model');
-//        $wildcard = config('admin-bar.config.emptyCachePost.wildcard');
-//        $parameterToReturn = config('admin-bar.config.emptyCachePost.parameterToReturn');
-//        $enabled = config('admin-bar.config.emptyCachePost.enabled');
-//        $currentRoute = Route::current();
-//        $targetEndpointUrl = config('admin-bar.config.emptyCachePost.targetEndpointUrl');
-//
-//        return self::generateLink(
-//            $uris,
-//            $currentRoute,
-//            $enabled,
-//            $model,
-//            $parameterForSearch,
-//            $wildcard,
-//            $parameterToReturn,
-//            $targetEndpointUrl
-//        );
-//    }
+    //    public static function getPostEmptyCacheLink(): ?string
+    //    {
+    //        $uris = config('admin-bar.config.emptyCachePost.uris');
+    //        $parameterForSearch = config('admin-bar.config.emptyCachePost.parameterForSearch');
+    //        $model = config('admin-bar.config.emptyCachePost.model');
+    //        $wildcard = config('admin-bar.config.emptyCachePost.wildcard');
+    //        $parameterToReturn = config('admin-bar.config.emptyCachePost.parameterToReturn');
+    //        $enabled = config('admin-bar.config.emptyCachePost.enabled');
+    //        $currentRoute = Route::current();
+    //        $targetEndpointUrl = config('admin-bar.config.emptyCachePost.targetEndpointUrl');
+    //
+    //        return self::generateLink(
+    //            $uris,
+    //            $currentRoute,
+    //            $enabled,
+    //            $model,
+    //            $parameterForSearch,
+    //            $wildcard,
+    //            $parameterToReturn,
+    //            $targetEndpointUrl
+    //        );
+    //    }
 
     /**
      * @return array|Repository|Application|mixed|string|string[]|null
@@ -65,9 +66,11 @@ class LaravelAdminBar
                 if ($post) {
                     return str_replace('{parameter}', $post->{$parameterToReturn}, $targetEndpointUrl);
                 }
+
                 return null;
             }
         }
+
         return null;
     }
 }
