@@ -1,25 +1,11 @@
-<svg width="16px" height="16px" viewBox="0 0 52 52" version="1.1"
-     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     xml:space="preserve" xmlns:serif="http://www.serif.com/"
-     style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;display:inline-block">
-    <g transform="matrix(1,0,0,1,-1518.43,-664.935)">
-	    <g transform="matrix(2.63401,0,0,2.63401,-1979.26,-3607.86)">
-		    <g transform="matrix(0.37965,0,0,0.37965,751.427,1369.72)">
-			    <rect x="1518.43" y="664.935" width="51.391" height="51.391"
-			          style="fill:rgb(239,68,68);"/>
-		    </g>
-		    <g transform="matrix(0.205728,0,0,0.199459,1224.2,1598)">
-			    <g id="_3" serif:id="3">
-				    <g transform="matrix(0.969407,0,0,0.969407,19.5853,-63.1565)">
-					    <path d="M535.631,245.705C535.631,252.898 541.471,258.738 548.664,258.738C555.857,258.738 561.697,252.898 561.697,245.705L574.729,245.705C574.729,260.091 563.05,271.771 548.664,271.771C534.278,271.771 522.598,260.091 522.598,245.705L535.631,245.705Z"
-					          style="fill:white;"/>
-				    </g>
-				    <path d="M575.813,139.831L573.962,139.831L545.538,163.758L553.345,173.031L575.813,154.117L575.813,139.831Z"
-				          style="fill:white;"/>
-				    <rect x="528.262" y="139.831" width="47.551" height="12.122"
-				          style="fill:white;"/>
-			    </g>
-		    </g>
-	    </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <path
+        d="M0 14C0 21.732 6.26801 28 14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14Z"
+        fill="#EF4444"/>
+    <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M10.2663 15.426C10.2663 17.422 11.9378 19.0426 13.9965 19.0426C16.0552 19.0426 17.7267 17.422 17.7267 15.426H21.4566C21.4566 19.418 18.114 22.6591 13.9965 22.6591C9.87908 22.6591 6.53613 19.418 6.53613 15.426H10.2663Z"
+          fill="white"/>
+    <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M21.1856 5.34998H20.6391L12.2471 12.199L14.552 14.8534L21.1856 9.43931V5.34998Z" fill="white"/>
+    <path d="M21.1851 5.34998L7.146 5.34998L7.146 8.81987L21.1851 8.81987V5.34998Z" fill="white"/>
 </svg>

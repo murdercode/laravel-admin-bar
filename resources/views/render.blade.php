@@ -1,29 +1,32 @@
 @auth
     <style>
+        .admin-bar svg {
+            border-radius: 9999px;
+        }
+
         .admin-bar {
             @if(config('admin-bar.style.theme') == 'light')
-  background-color: #f8f9fa;
+                                                         background-color: #f8f9fa;
             color: #323f52;
             @else
-  background-color: #000;
+                                                         background-color: #000;
             color: #f8f9fa;
             @endif
 
             @if(config('admin-bar.style.position') == 'top')
-  top: 0;
+                                                                     top: 10px;
             @else
-  bottom: 0;
+                                                       bottom: 10px;
             @endif
-  position: fixed;
+                                                       position: fixed;
 
-            left: 0;
+            right: 10px;
             z-index: 999999;
-            padding: 5px 10px;
-            height: 35px;
+            padding: 6px;
             display: flex;
             align-items: center;
-            width: 100%;
             font-size: {{ config('admin-bar.style.font-size') }};
+            border-radius: 9999px;
         }
 
         .admin-bar > .wrapper {
@@ -31,6 +34,7 @@
             max-width: {{config('admin-bar.style.max-width') }};
             margin: auto;
             display: flex;
+            align-items: center;
         }
 
         .admin-bar > .wrapper > div {
@@ -41,12 +45,15 @@
             text-align: right;
         }
 
+        .admin-bar > .wrapper > div.left {
+            margin-right: 0.5rem;
+        }
+
         .admin-bar > .wrapper > div.right * + * {
             margin-left: 1rem;
         }
 
         .admin-bar > .wrapper a {
-            opacity: 0.8;
             color: inherit;
             text-decoration: none;
             font-weight: bold;
@@ -64,7 +71,6 @@
 
         .admin-bar ul li {
             display: inline-block;
-            margin-left: 1rem;
         }
 
         .sr-only {
@@ -110,9 +116,10 @@
                 border-color: #4d4d4d;
             }
 
-            .navbar {
+            .navbar, .welcome_back, .center {
                 display: none;
             }
+
 
             .navbar:target {
                 display: block;
@@ -135,22 +142,39 @@
         <div class="wrapper">
             <div class="left">
 
-                @if(config('admin-bar.style.show3labsLogo'))
-                    <x-admin-bar::icons.3labs-logo/>
-                @endif
+                <img src="{{auth()->user()->avatar_url ?? auth()->user()->avatar_html}}"
+                     alt="{{auth()->user()->name}}" width="28"
+                     height="28" style="border-radius: 9999px;aspect-ratio: 1">
 
-                {{--                {{__('Welcome back')}},--}}
-                {{--                <strong>--}}
-                {{--                    {{auth()->user()->name}}--}}
-                {{--                </strong>--}}
+
+            </div>
+
+            <div class="center" style="display: flex">
+
+                <div class="welcome_back" style="margin-right: 24px">
+                    {{__('Welcome back')}},
+                    <strong>
+                        {{auth()->user()->name}}
+                    </strong>
+                </div>
+
+                <div class="actions" style="align-items: center;display: flex;">
+                    @if(isset($postEditLink))
+                        <a href="{{$postEditLink}}" target="_blank">
+                            <x-admin-bar::icons.edit/>
+                            {{__('Edit Post')}}
+                        </a>
+                    @endif
+                </div>
+
             </div>
 
             <div class="right">
 
-                <a class="hamburger" href="#navbar">
-                    <span class="sr-only">Open main menu</span>
-                    <x-admin-bar::icons.hamburger/>
-                </a>
+                {{--                <a class="hamburger" href="#navbar">--}}
+                {{--                    <span class="sr-only">Open main menu</span>--}}
+                {{--                    <x-admin-bar::icons.hamburger/>--}}
+                {{--                </a>--}}
 
                 <nav class="navbar" id="navbar" aria-label="Main menu">
 
@@ -159,31 +183,23 @@
                         <x-admin-bar::icons.close/>
                     </a>
 
-                    <ul>
+                    <ul style="align-items: center; display: flex">
 
-                        @if(isset($postEmptyCacheLink))
-                            <li>
-                                <a href="{{$postEmptyCacheLink}}">
-                                    <x-admin-bar::icons.trash/>
-                                    {{__('Clear Cache')}}
-                                </a>
-                            </li>
-                        @endif
-
-                        @if(isset($postEditLink))
-                            <li>
-                                <a href="{{$postEditLink}}" target="_blank">
-                                    <x-admin-bar::icons.edit/>
-                                    {{__('Edit Post')}}
-                                </a>
-                            </li>
-                        @endif
 
                         <li>
-                            <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
-                                {{__('Control Panel')}}
-                            </a>
+                            @if(config('admin-bar.style.show3labsLogo'))
+                                <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
+
+                                    <x-admin-bar::icons.3labs-logo/>
+                                </a>
+                            @endif
                         </li>
+
+                        {{--                        <li>--}}
+                        {{--                            <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">--}}
+                        {{--                                {{__('Control Panel')}}--}}
+                        {{--                            </a>--}}
+                        {{--                        </li>--}}
 
                     </ul>
 
