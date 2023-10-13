@@ -6,19 +6,20 @@
 
         .admin-bar {
             @if(config('admin-bar.style.theme') == 'light')
-                                                         background-color: #f8f9fa;
+                                                  background-color: #f8f9fa;
             color: #323f52;
             @else
-                                                         background-color: #000;
+                                                  background-color: #000;
+            background: linear-gradient(91deg, rgba(255, 0, 0, 0.20) 3.84%, rgba(255, 0, 0, 0.00) 97.44%), #000;
             color: #f8f9fa;
             @endif
 
             @if(config('admin-bar.style.position') == 'top')
-                                                                     top: 10px;
+                                                  top: 10px;
             @else
-                                                       bottom: 10px;
+                                                  bottom: 10px;
             @endif
-                                                       position: fixed;
+                                                  position: fixed;
 
             right: 10px;
             z-index: 999999;
@@ -140,25 +141,28 @@
 
     <div class="admin-bar">
         <div class="wrapper">
-            <div class="left">
+            <div class="left" style="display: flex">
 
-                <img src="{{auth()->user()->avatar_url ?? auth()->user()->avatar_html}}"
-                     alt="{{auth()->user()->name}}" width="28"
-                     height="28" style="border-radius: 9999px;aspect-ratio: 1">
+                @if(config('admin-bar.style.show3labsLogo'))
+                    <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
+
+                        <x-admin-bar::icons.3labs-logo/>
+                    </a>
+                @endif
 
 
             </div>
 
             <div class="center" style="display: flex">
 
-                <div class="welcome_back" style="margin-right: 24px">
-                    {{__('Welcome back')}},
-                    <strong>
-                        {{auth()->user()->name}}
-                    </strong>
-                </div>
+                {{--                <div class="welcome_back" style="margin-right: 24px">--}}
+                {{--                    {{__('Welcome back')}},--}}
+                {{--                    <strong>--}}
+                {{--                        {{auth()->user()->name}}--}}
+                {{--                    </strong>--}}
+                {{--                </div>--}}
 
-                <div class="actions" style="align-items: center;display: flex;">
+                <div class="actions" style="align-items: center;display: flex;margin-right: 12px;">
                     @if(isset($postEditLink))
                         <a href="{{$postEditLink}}" target="_blank">
                             <x-admin-bar::icons.edit/>
@@ -167,40 +171,25 @@
                     @endif
                 </div>
 
+                <div
+                    style="font-weight:800;font-style: italic;color:#fff;display: flex;align-items: center;margin-right: 12px">
+                    {{$renderTime}}s
+                </div>
+
+
             </div>
 
             <div class="right">
 
-                {{--                <a class="hamburger" href="#navbar">--}}
-                {{--                    <span class="sr-only">Open main menu</span>--}}
-                {{--                    <x-admin-bar::icons.hamburger/>--}}
-                {{--                </a>--}}
 
                 <nav class="navbar" id="navbar" aria-label="Main menu">
 
-                    <a href="#" class="close-button">
-                        <span class="sr-only">Close main menu</span>
-                        <x-admin-bar::icons.close/>
-                    </a>
-
                     <ul style="align-items: center; display: flex">
-
-
                         <li>
-                            @if(config('admin-bar.style.show3labsLogo'))
-                                <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
-
-                                    <x-admin-bar::icons.3labs-logo/>
-                                </a>
-                            @endif
+                            <img src="{{auth()->user()->avatar_url ?? auth()->user()->avatar_html}}"
+                                 alt="{{auth()->user()->name}}" width="28"
+                                 height="28" style="border-radius: 9999px;aspect-ratio: 1">
                         </li>
-
-                        {{--                        <li>--}}
-                        {{--                            <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">--}}
-                        {{--                                {{__('Control Panel')}}--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-
                     </ul>
 
                 </nav>
@@ -208,4 +197,5 @@
             </div>
         </div>
     </div>
+
 @endauth
