@@ -6,20 +6,20 @@
 
         .admin-bar {
             @if(config('admin-bar.style.theme') == 'light')
-                                                  background-color: #f8f9fa;
+                                                    background-color: #f8f9fa;
             color: #323f52;
             @else
-                                                  background-color: #000;
+                                                    background-color: #000;
             background: linear-gradient(91deg, rgba(255, 0, 0, 0.20) 3.84%, rgba(255, 0, 0, 0.00) 97.44%), #000;
             color: #f8f9fa;
             @endif
 
             @if(config('admin-bar.style.position') == 'top')
-                                                  top: 10px;
+                                                    top: 10px;
             @else
-                                                  bottom: 10px;
+                                                    bottom: 10px;
             @endif
-                                                  position: fixed;
+                                                    position: fixed;
 
             right: 10px;
             z-index: 999999;
@@ -155,12 +155,12 @@
 
             <div class="center" style="display: flex">
 
-                {{--                <div class="welcome_back" style="margin-right: 24px">--}}
-                {{--                    {{__('Welcome back')}},--}}
-                {{--                    <strong>--}}
-                {{--                        {{auth()->user()->name}}--}}
-                {{--                    </strong>--}}
-                {{--                </div>--}}
+                <div class="welcome_back" style="margin-right: 12px">
+                    {{__('Welcome back')}},
+                    <strong>
+                        {{auth()->user()->name}}
+                    </strong>
+                </div>
 
                 <div class="actions" style="align-items: center;display: flex;margin-right: 12px;">
                     @if(isset($postEditLink))
