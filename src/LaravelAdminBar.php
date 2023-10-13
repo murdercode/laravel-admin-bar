@@ -20,7 +20,7 @@ class LaravelAdminBar
         $postEditLink = self::getPostEditLink();
         $postCreateLink = self::getPostCreateLink();
         $renderTime = microtime(true) - LARAVEL_START;
-        $renderTime = round($renderTime, 3);
+        $renderTime = round($renderTime, 2);
 
         //        $postEmptyCacheLink = self::getPostEmptyCacheLink();
         return view('admin-bar::render', compact('postEditLink', 'postCreateLink' , 'renderTime'));
