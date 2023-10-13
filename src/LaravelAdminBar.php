@@ -13,7 +13,7 @@ class LaravelAdminBar
     public static function render(): View|Factory|Application|null
     {
 
-        if(!auth()->check()) {
+        if (! auth()->check()) {
             return null;
         }
 
