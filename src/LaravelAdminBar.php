@@ -23,7 +23,7 @@ class LaravelAdminBar
         $renderTime = round($renderTime, 2);
 
         //        $postEmptyCacheLink = self::getPostEmptyCacheLink();
-        return view('admin-bar::render', compact('postEditLink', 'postCreateLink' , 'renderTime'));
+        return view('admin-bar::render', compact('postEditLink', 'postCreateLink', 'renderTime'));
     }
 
     public static function getPostEditLink(): ?string
