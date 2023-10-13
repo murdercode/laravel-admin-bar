@@ -11,6 +11,10 @@ return [
     ],
     'config' => [
         'adminUrl' => '/cms',
+        'createPost' => [
+            'enabled' => true,
+            'createPost' => '/cms/resources/posts/create',
+        ],
         'editPost' => [
             'enabled' => true,
             'uris' => ['articoli/{slug}', 'notizie/{slug}', 'recensioni/{slug}'], // detect the current route as defined in your routes/web.php

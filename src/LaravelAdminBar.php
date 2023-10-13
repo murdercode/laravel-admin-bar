@@ -18,12 +18,12 @@ class LaravelAdminBar
         }
 
         $postEditLink = self::getPostEditLink();
-
+        $postCreateLink = self::getPostCreateLink();
         $renderTime = microtime(true) - LARAVEL_START;
         $renderTime = round($renderTime, 3);
 
         //        $postEmptyCacheLink = self::getPostEmptyCacheLink();
-        return view('admin-bar::render', compact('postEditLink', 'renderTime'));
+        return view('admin-bar::render', compact('postEditLink', 'postCreateLink' , 'renderTime'));
     }
 
     public static function getPostEditLink(): ?string
@@ -37,6 +37,11 @@ class LaravelAdminBar
         $targetEndpointUrl = config('admin-bar.config.editPost.targetEndpointUrl');
 
         return self::generateLink($uris, $enabled, $model, $parameterForSearch, $wildcard, $parameterToReturn, $targetEndpointUrl);
+    }
+
+    public static function getPostCreateLink(): ?string
+    {
+        return config('admin-bar.config.createPost.targetEndpointUrl');
     }
 
     //    public static function getPostEmptyCacheLink(): ?string
