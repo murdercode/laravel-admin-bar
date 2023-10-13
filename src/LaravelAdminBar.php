@@ -10,8 +10,13 @@ use Illuminate\Support\Facades\Route;
 
 class LaravelAdminBar
 {
-    public static function render(): View|Factory|Application
+    public static function render(): View|Factory|Application|null
     {
+
+        if(!auth()->check()) {
+            return null;
+        }
+
         $postEditLink = self::getPostEditLink();
 
         $renderTime = microtime(true) - LARAVEL_START;
