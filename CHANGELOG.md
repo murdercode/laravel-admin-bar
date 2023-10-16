@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-admin-bar` will be documented in this file.
 
+## v0.0.9 - 2023-10-16
+
+### What's Changed
+
+- Refactor style by @Claudio-Emmolo in https://github.com/murdercode/laravel-admin-bar/pull/11
+
+### New Contributors
+
+- @Claudio-Emmolo made their first contribution in https://github.com/murdercode/laravel-admin-bar/pull/11
+
+**Full Changelog**: https://github.com/murdercode/laravel-admin-bar/compare/v0.0.8...v0.0.9
+
 ## v0.0.8 - 2023-10-13
 
 **Full Changelog**: https://github.com/murdercode/laravel-admin-bar/compare/v0.0.6...v0.0.8
