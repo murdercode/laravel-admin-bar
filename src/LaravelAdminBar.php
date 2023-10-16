@@ -84,7 +84,7 @@ class LaravelAdminBar
         foreach ($uris as $uri) {
             if ($uri && $currentRoute && $currentRoute->uri == $uri) {
 
-                if(!$parameterForSearch && !$wildcard){
+                if (! $parameterForSearch && ! $wildcard) {
                     return $targetEndpointUrl;
                 }
 
