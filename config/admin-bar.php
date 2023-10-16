@@ -13,7 +13,7 @@ return [
         'adminUrl' => '/cms',
         'createPost' => [
             'enabled' => true,
-            'createPost' => '/cms/resources/posts/create',
+            'targetEndpointUrl' => '/cms/resources/posts/create',
         ],
         'editPost' => [
             'enabled' => true,

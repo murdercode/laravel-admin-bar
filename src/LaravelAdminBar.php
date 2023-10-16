@@ -41,15 +41,15 @@ class LaravelAdminBar
 
     public static function getPostCreateLink(): ?string
     {
-        $uris = config('admin-bar.config.createPost.uris');
-        $parameterForSearch = config('admin-bar.config.createPost.parameterForSearch');
-        $model = config('admin-bar.config.createPost.model');
-        $wildcard = config('admin-bar.config.createPost.wildcard');
-        $parameterToReturn = config('admin-bar.config.createPost.parameterToReturn');
         $enabled = config('admin-bar.config.createPost.enabled');
         $targetEndpointUrl = config('admin-bar.config.createPost.targetEndpointUrl');
 
-        return self::generateLink($uris, $enabled, $model, $parameterForSearch, $wildcard, $parameterToReturn, $targetEndpointUrl);
+        if ($enabled && isset($targetEndpointUrl))
+        {
+            return $targetEndpointUrl;
+        }
+
+        return null;
     }
 
     //    public static function getPostEmptyCacheLink(): ?string
@@ -83,10 +83,6 @@ class LaravelAdminBar
         $currentRoute = Route::current() ?: null;
         foreach ($uris as $uri) {
             if ($uri && $currentRoute && $currentRoute->uri == $uri) {
-
-                if(!$parameterForSearch && !$wildcard){
-                    return $targetEndpointUrl;
-                }
 
                 $post = $model::where($parameterForSearch, $currentRoute->parameters[$wildcard])->first();
                 if ($post) {
