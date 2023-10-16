@@ -56,7 +56,7 @@
        function openAdminBar(){
             const wrapper = document.querySelector('.wrapper');
 
-            wrapper.classList.toggle('openWrapper');
+            wrapper.classList.toggle('open-wrapper');
        }
    </script>
 
@@ -134,7 +134,7 @@
                display: none;
            }
 
-           .openWrapper {
+           .open-wrapper {
                display: flex !important;
            }
 
@@ -143,6 +143,10 @@
                flex-direction: column;
                align-items: center;
                margin: 15px 0;
+           }
+
+           .action-box span{
+               font-size: .8rem;
            }
 
            .action-box:not(:last-child) span {
