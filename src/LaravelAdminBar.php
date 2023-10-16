@@ -44,8 +44,7 @@ class LaravelAdminBar
         $enabled = config('admin-bar.config.createPost.enabled');
         $targetEndpointUrl = config('admin-bar.config.createPost.targetEndpointUrl');
 
-        if ($enabled && isset($targetEndpointUrl))
-        {
+        if ($enabled && isset($targetEndpointUrl)) {
             return $targetEndpointUrl;
         }
 
