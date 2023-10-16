@@ -3,36 +3,36 @@
         <div class="wrapper">
 
             {{--3Labs Logo--}}
-            <div class="3labs-logo">
-                @if(config('admin-bar.style.show3labsLogo'))
+            @if(config('admin-bar.style.show3labsLogo'))
+                <div class="3labs-logo">
                     <a target="_blank" href="{{config('admin-bar.config.adminUrl')}}">
                         <x-admin-bar::icons.3labs-logo/>
                     </a>
-                @endif
-            </div>
+                </div>
+            @endif
 
             {{--Create--}}
-            <div class="action-box">
-                @if(isset($postCreateLink))
+            @if(isset($postCreateLink))
+                <div class="action-box">
                     <a href="{{$postCreateLink}}" target="_blank">
                         <x-admin-bar::icons.create/>
                         <span>
                             {{__('Create')}}
                         </span>
                     </a>
-                @endif
-            </div>
+                </div>
+            @endif
             {{--Edit--}}
-            <div class="action-box">
-                @if(isset($postEditLink))
+            @if(isset($postEditLink))
+                <div class="action-box">
                     <a href="{{$postEditLink}}" target="_blank">
                         <x-admin-bar::icons.edit/>
                         <span>
                             {{__('Edit')}}
                         </span>
                     </a>
-                @endif
-            </div>
+                </div>
+            @endif
 
             {{--Render Time--}}
             <div class="action-box">
