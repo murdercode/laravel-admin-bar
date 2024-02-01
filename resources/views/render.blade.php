@@ -71,10 +71,10 @@
                 background-color: #000;
                 background: linear-gradient(91deg, rgba(255, 0, 0, 0.20) 3.84%, rgba(255, 0, 0, 0.00) 97.44%), #000;
                 color: #f8f9fa;
-                bottom: 20px;
+                bottom: 60px;
                 position: fixed;
 
-                right: 10px;
+                left: 10px;
                 z-index: 999999999999999;
                 padding: 6px;
                 display: flex;
@@ -162,5 +162,6 @@
             }
 
         </style>
+        
     @endif
 @endauth
