@@ -68,7 +68,6 @@
             }
 
             .admin-bar {
-                opacity: 0.1;
                 background-color: #000;
                 background: linear-gradient(91deg, rgba(255, 0, 0, 0.20) 3.84%, rgba(255, 0, 0, 0.00) 97.44%), #000;
                 color: #f8f9fa;
@@ -82,10 +81,6 @@
                 align-items: center;
                 font-size: {{ config('admin-bar.style.font-size') }};
                 border-radius: 9999px;
-            }
-
-            .admin-bar:hover {
-                opacity: 1;
             }
 
             .admin-bar .wrapper {
@@ -127,6 +122,14 @@
                 aspect-ratio: 1;
             }
 
+            .admin-bar .wrapper {
+                display: none;
+            }
+
+            .open-wrapper {
+                display: flex !important;
+            }
+
 
             /* Smartphone */
             @media (max-width: 768px) {
@@ -137,12 +140,8 @@
 
                 .admin-bar .wrapper {
                     flex-direction: column;
-                    display: none;
                 }
 
-                .open-wrapper {
-                    display: flex !important;
-                }
 
                 .action-box {
                     display: flex;
