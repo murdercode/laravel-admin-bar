@@ -122,20 +122,20 @@
                 aspect-ratio: 1;
             }
 
-            .admin-bar .wrapper {
-                display: none;
-            }
-
-            .open-wrapper {
-                display: flex !important;
-            }
-
 
             /* Smartphone */
             @media (max-width: 768px) {
                 .admin-bar {
                     display: flex;
                     flex-direction: column;
+                }
+
+                .admin-bar .wrapper {
+                    display: none;
+                }
+
+                .open-wrapper {
+                    display: flex !important;
                 }
 
                 .admin-bar .wrapper {
