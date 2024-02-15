@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-admin-bar` will be documented in this file.
 
+## v1.0.1 - 2024-02-02
+
+**Full Changelog**: https://github.com/murdercode/laravel-admin-bar/compare/v1.0.0...v1.0.1
+
 ## v1.0.0 - 2024-02-01
 
 **Full Changelog**: https://github.com/murdercode/laravel-admin-bar/compare/v0.0.9...v1.0.0
