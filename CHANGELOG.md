@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-admin-bar` will be documented in this file.
 
+## v1.0.5 - 2024-03-18
+
+Support for PHP 8.3 + L11
+**Full Changelog**: https://github.com/murdercode/laravel-admin-bar/compare/v1.0.3...v1.0.5
+
 ## v1.0.4 - 2024-02-15
 
 **Full Changelog**: https://github.com/murdercode/laravel-admin-bar/compare/v1.0.2...v1.0.4
