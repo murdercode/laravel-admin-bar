@@ -1,72 +1,72 @@
 {
-    "name": "murdercode/laravel-admin-bar",
-    "description": "Laravel Admin Bar",
-    "keywords": [
-        "murdercode",
-        "laravel",
-        "laravel-admin-bar"
-    ],
-    "homepage": "https://github.com/murdercode/laravel-admin-bar",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Stefano Novelli",
-            "email": "murdercode@gmail.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^8.1|^8.2",
-        "spatie/laravel-package-tools": "^1.13.0",
-        "illuminate/contracts": "^9.0|^10.0"
-    },
-    "require-dev": {
-        "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^6.0",
-        "nunomaduro/larastan": "^2.0.1",
-        "orchestra/testbench": "^7.0",
-        "pestphp/pest": "^1.21",
-        "pestphp/pest-plugin-laravel": "^1.1",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "Murdercode\\LaravelAdminBar\\": "src",
-            "Murdercode\\LaravelAdminBar\\Database\\Factories\\": "database/factories"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Murdercode\\LaravelAdminBar\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
-        "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
-    },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Murdercode\\LaravelAdminBar\\LaravelAdminBarServiceProvider"
-            ],
-            "aliases": {
-                "LaravelAdminBar": "Murdercode\\LaravelAdminBar\\Facades\\LaravelAdminBar"
-            }
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "murdercode/laravel-admin-bar",
+  "description": "Laravel Admin Bar",
+  "keywords": [
+    "murdercode",
+    "laravel",
+    "laravel-admin-bar"
+  ],
+  "homepage": "https://github.com/murdercode/laravel-admin-bar",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stefano Novelli",
+      "email": "murdercode@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1|^8.2|^8.3",
+    "spatie/laravel-package-tools": "^1.13.0",
+    "illuminate/contracts": "^9.0|^10.0|^11.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.0",
+    "nunomaduro/collision": "^6.0",
+    "nunomaduro/larastan": "^2.0.1",
+    "orchestra/testbench": "^7.0",
+    "pestphp/pest": "^1.21",
+    "pestphp/pest-plugin-laravel": "^1.1",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Murdercode\\LaravelAdminBar\\": "src",
+      "Murdercode\\LaravelAdminBar\\Database\\Factories\\": "database/factories"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Murdercode\\LaravelAdminBar\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+    "analyse": "vendor/bin/phpstan analyse",
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage",
+    "format": "vendor/bin/pint"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Murdercode\\LaravelAdminBar\\LaravelAdminBarServiceProvider"
+      ],
+      "aliases": {
+        "LaravelAdminBar": "Murdercode\\LaravelAdminBar\\Facades\\LaravelAdminBar"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
