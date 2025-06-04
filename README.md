@@ -7,6 +7,15 @@
 
 A simple, but powerful, package for include an Admin bar (like Wordpress) in your next fantastic Laravel project.
 
+## Requirements
+
+| Package Version     | Requirement | Version      |
+|---------------------|-------------|--------------|
+| 1.x.x               | Laravel     | 10.x or 11.x |
+| 1.x.x               | Nova        | 4.x          |
+| dev-beta-laravel-12 | Laravel     | 12.x         |
+| dev-beta-laravel-12 | Nova        | 5.x          |
+
 ## Installation
 
 You can install the package via composer:
